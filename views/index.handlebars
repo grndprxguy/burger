@@ -1,35 +1,42 @@
-<h1>Burgers:</h1>
-
-<h2>Not-Eaten Burgers
-<ul>
-	{{#each burgers}}
+<div class="container">
+	<div class="jumbotron">
+		<h1>Burgers:</h1>
+	</div>
+<h2>Not-Eaten Burgers</h2>
+<ul class="list-group">
+	<h3>
+		{{#each burgers}}
 		{{#unless devoured}}
 			{{burger_name}}{{> burgers/burger-block devoured=true}}
 		{{/unless}}
 	{{/each}}
+	</h3>
 </ul>
 
 <h2>Devoured Burgers</h2>
-<ul>
-	{{#each burgers}}
+<ul class="list-group">
+	<h3>
+		{{#each burgers}}
 		{{#if devoured}}
 			{{burger_name}}
 			{{> burgers/burger-block devoured=false}}
 		{{/if}}
 	{{/each}}
+	</h3>
 </ul>
 
 <h2>Add a Burger</h2>
 <form class="create-form">
 	<div class="form-group">
 		<label for="bgr">Burger Name:</label>
-		<input type="text" id="bgr" name="name">
+		<input type="text" class="form-control" id="bgr" name="name">
 	</div>
 
-	<div class="form-group">
-		<label for="dvr">Devoured?</label><br>
-		<input type="radio" name="devoured" value="1" checked>Yes!<br>
-		<input type="radio" name="devoured" value="0"> No
-	</div>
-	<button type="submit">Add Burger</button>
+	<div class="form-check">
+		<label class="form-check-label" for="dvr">Devoured?</label></h3><br>
+		<input class="form-check-input" type="radio" name="devoured" value="1" checked>Yes!<br>
+		<input class="form-check-input"type="radio" name="devoured" value="0"> No
+		</div>
+	<button class="btn btn-success" type="submit">Add Burger</button>
 </form>
+</div>
