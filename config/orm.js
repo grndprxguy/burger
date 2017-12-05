@@ -44,7 +44,7 @@ var orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log(queryString);
+    console.log(queryString, vals.length);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -56,9 +56,7 @@ var orm = {
   },
 
   update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
-
-    queryString += " SET ";
+    var queryString = "UPDATE burgers SET "
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
     queryString += condition;
